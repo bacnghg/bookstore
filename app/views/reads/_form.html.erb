@@ -1,0 +1,13 @@
+<%= simple_form_for @read do |f| %>
+	
+	<%= f.file_field :read_img %>
+
+	<%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select Category")%>
+
+		
+ 	 	<%= f.input :title, label: "Read Title" %>
+  		<%= f.input :description %>
+  		<%= f.input :writer %>
+  		<%= f.input :category %>
+	  	<%= f.button :submit %>
+<% end %>

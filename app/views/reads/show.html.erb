@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-md-4">
+	<%= image_tag @read.read_img.url(:read_show), class:"read-show" %>
+	</div>
+
+	<div class="col-md-8">
+		<div class="read-info">
+			<h2 class="read-title"><%= @read.title %></h2>
+			<h3 class="read-writer"><span><em>From: </em> </span><%= @read.writer %></h3>
+			<h4 class="read-writer"><%= @read.category.name %></h4>
+			<h4 class="avg-rating">Average Rating </h4>
+			<span class="number-of-reviews"><em>From: </em><%= @read.reviews.count %> reviews</span>
+			<p class="read-desc"><%= @read.description %></p>
+		</div>
+	</div>
+
+
+
+
+<div class="btn-group">
+	<%  if user_signed_in? %>
+		<% if @read.user_id == current_user.id %>
+				<%= link_to "Edit", edit_read_path(@read), class:"btn btn-custom" %>
+				<%= link_to "Delete", read_path(@read),class:"btn btn-custom", method: :delete, data: {confirm: "Are you sure"} %>		
+		<% end %>
+	<% end %>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="reviews">
+			<h1>Reviews</h1>
+			<%= render @read.reviews %>
+			<div>
+				<%= link_to "Add Reviews", new_read_review_path(@read), class: "btn-custom" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('.review-rating').raty({
+		readOnly:true,
+		score: function() {
+			return $(this).attr('data-score');
+		},
+		path: '/assets'
+	});
+</script>
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets',
+		score: function() {
+			return $(this).attr('data-score');
+		}
+	});
+</script>

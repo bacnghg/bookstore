@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: abc-jsc
+  api_key: '178264197414252'
+  api_secret: o73Jbwk2EVggN61TD9L101KLc4A
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: abc-jsc
+  api_key: '178264197414252'
+  api_secret: o73Jbwk2EVggN61TD9L101KLc4A
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: abc-jsc
+  api_key: '178264197414252'
+  api_secret: o73Jbwk2EVggN61TD9L101KLc4A
+  enhance_image_tag: true
+  static_image_support: false

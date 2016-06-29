@@ -1,0 +1,14 @@
+<h1 class="current-category"><%= params[:category]%> </h1>
+	<% if @reads.count == 0 %>
+		<h3>There are no reads in this category</h3>
+	<% else %>
+		<div class="row">
+			<% @reads.each do |read| %>
+				<div class="col-md-3">
+					<a href="/reads/<%= read.id %>">
+					  <%= image_tag read.read_img.url(:read_index), class: "read" %>
+					</a>
+				</div>
+		<% end %>
+	</div>
+<% end %>
